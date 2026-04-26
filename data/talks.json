@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Scaling Distributed Systems with Rust",
+    "speakers": ["Alice Johnson"],
+    "categories": ["Backend", "Rust", "Distributed Systems"],
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "description": "Learn how to leverage Rust's memory safety and concurrency primitives to build high-performance distributed systems that scale effortlessly."
+  },
+  {
+    "id": 2,
+    "title": "The Future of WebAssembly in the Browser",
+    "speakers": ["Bob Smith", "Charlie Davis"],
+    "categories": ["Web", "Wasm", "Performance"],
+    "startTime": "11:10",
+    "endTime": "12:10",
+    "description": "Exploring how WebAssembly is moving beyond simple modules to power complex, performance-critical applications directly in the browser."
+  },
+  {
+    "id": 3,
+    "title": "AI-Driven Development: Myths vs. Reality",
+    "speakers": ["Dr. Emily Chen"],
+    "categories": ["AI", "DevEx", "Productivity"],
+    "startTime": "12:20",
+    "endTime": "13:20",
+    "description": "A deep dive into how LLMs are actually changing the software development lifecycle and what developers should focus on to stay relevant."
+  },
+  {
+    "id": 4,
+    "title": "Zero Trust Security for Cloud Native Apps",
+    "speakers": ["Frank Miller"],
+    "categories": ["Security", "Cloud Native", "DevOps"],
+    "startTime": "14:20",
+    "endTime": "15:20",
+    "description": "How to implement a Zero Trust architecture in Kubernetes and other cloud-native environments without sacrificing developer velocity."
+  },
+  {
+    "id": 5,
+    "title": "Mastering CSS Grid and Subgrid",
+    "speakers": ["Grace Hopper"],
+    "categories": ["Frontend", "CSS", "UI/UX"],
+    "startTime": "15:30",
+    "endTime": "16:30",
+    "description": "Unlock the full potential of CSS layouts with modern Grid techniques, including the newly supported subgrid for complex nested layouts."
+  },
+  {
+    "id": 6,
+    "title": "Quantum Computing: A Developer's Perspective",
+    "speakers": ["Henry Wu", "Ivy Zhang"],
+    "categories": ["Quantum", "Algorithms", "Future Tech"],
+    "startTime": "16:40",
+    "endTime": "17:40",
+    "description": "You don't need a PhD in physics to start writing quantum algorithms. We'll show you how to get started with Q# and IBM Quantum."
+  }
+]
