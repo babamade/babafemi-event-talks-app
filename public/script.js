@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const scheduleContainer = document.getElementById('schedule');
     const searchInput = document.getElementById('categorySearch');
+    const searchFeedback = document.getElementById('searchFeedback');
+    const backToTopBtn = document.getElementById('backToTop');
     let allTalks = [];
 
     // Fetch talks from the server
@@ -8,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
             allTalks = data;
+            // Artificial delay to show off skeletons (optional, removing for production feel)
             renderSchedule(allTalks);
         })
         .catch(error => {
@@ -18,11 +21,57 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle search input
     searchInput.addEventListener('input', (e) => {
         const searchTerm = e.target.value.toLowerCase();
+        filterAndRender(searchTerm);
+    });
+
+    function filterAndRender(searchTerm) {
         const filteredTalks = allTalks.filter(talk => 
             talk.categories.some(cat => cat.toLowerCase().includes(searchTerm)) ||
             talk.speakers.some(speaker => speaker.toLowerCase().includes(searchTerm))
         );
         renderSchedule(filteredTalks, searchTerm);
+        updateSearchFeedback(filteredTalks.length, searchTerm);
+    }
+
+    function updateSearchFeedback(count, searchTerm) {
+        if (searchTerm === '') {
+            searchFeedback.innerHTML = '';
+            return;
+        }
+
+        const talkLabel = count === 1 ? 'talk' : 'talks';
+        searchFeedback.innerHTML = `
+            <span>Found ${count} ${talkLabel} for "${searchTerm}"</span>
+            <button class="clear-search" id="clearSearch">Clear Search</button>
+        `;
+
+        document.getElementById('clearSearch').addEventListener('click', () => {
+            searchInput.value = '';
+            filterAndRender('');
+        });
+    }
+
+    // Interactive Tags via Event Delegation
+    scheduleContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('category-tag')) {
+            const tagValue = e.target.innerText;
+            searchInput.value = tagValue;
+            filterAndRender(tagValue.toLowerCase());
+            window.scrollTo({ top: searchInput.offsetTop - 100, behavior: 'smooth' });
+        }
+    });
+
+    // Back to Top Logic
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
     function renderSchedule(talks, searchTerm = '') {

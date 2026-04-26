@@ -144,6 +144,111 @@ header p {
     border-radius: 20px;
     font-size: 0.85rem;
     border: 1px solid rgba(56, 189, 248, 0.2);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.category-tag:hover {
+    background-color: rgba(56, 189, 248, 0.2);
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+.search-feedback {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -30px;
+    margin-bottom: 30px;
+    min-height: 40px;
+    color: var(--muted-text);
+}
+
+.clear-search {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--muted-text);
+    padding: 5px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.clear-search:hover {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-color: var(--accent-color);
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    background-color: var(--text-color);
+}
+
+/* Skeleton Loading Animation */
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+.skeleton-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 25px;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-text {
+    background-color: var(--border-color);
+    height: 1rem;
+    margin-bottom: 0.75rem;
+    border-radius: 4px;
+}
+
+.skeleton-title {
+    height: 2rem;
+    width: 70%;
+}
+
+.skeleton-time {
+    width: 30%;
+}
+
+.skeleton-desc {
+    width: 100%;
+}
+
+.skeleton-desc-short {
+    width: 40%;
 }
 
 .break-card {
